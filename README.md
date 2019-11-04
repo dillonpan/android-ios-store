@@ -6,9 +6,9 @@ Let's pretend we work for a company that specializes in creating profitable Andr
 
 Since there are millions of apps within each store, we will be using a small sample size of data for this project. Details are as follows and both data sets have been uploaded/links provided below:
 1. 'googleplaystore.csv' containing data about approximately ten thousand Android apps from Google Play
-[https://www.kaggle.com/lava18/google-play-store-apps]: Google Play Store Data
+[Google Play Store Data](https://www.kaggle.com/lava18/google-play-store-apps)
 2. ''AppleStore.csv''containing data about approximately seven thousand iOS apps from the App Store
-[https://www.kaggle.com/ramamet4/app-store-apple-data-set-10k-apps]: iOS App Store Data
+[iOS App Store Data](https://www.kaggle.com/ramamet4/app-store-apple-data-set-10k-apps)
 Note: All of the code below was run using Jupyter Notebook
 
 
