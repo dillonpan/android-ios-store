@@ -95,3 +95,26 @@ Number of rows: 7197
 Number of columns: 16
 
 # Deleting Wrong Data
+In one of the [discussion boards](https://www.kaggle.com/lava18/google-play-store-apps/discussion/66015) for the Google play data, someone noticed an error for row 10472. Let's take a look at what could be wrong:
+```python
+print(android_header)  # header
+print('\n')
+print(android[10472])  # row with mistake
+print('\n')
+print(android[0])      # correct row for reference
+```
+['App', 'Category', 'Rating', 'Reviews', 'Size', 'Installs', 'Type', 'Price', 'Content Rating', 'Genres', 'Last Updated', 'Current Ver', 'Android Ver']
+
+['Life Made WI-Fi Touchscreen Photo Frame', '1.9', '19', '3.0M', '1,000+', 'Free', '0', 'Everyone', '', 'February 11, 2018', '1.0.19', '4.0 and up']
+
+['Photo Editor & Candy Camera & Grid & ScrapBook', 'ART_AND_DESIGN', '4.1', '159', '19M', '10,000+', 'Free', '0', 'Everyone', 'Art & Design', 'January 7, 2018', '1.0.0', '4.0.3 and up']
+
+The row 10472 corresponds to the app Life Made WI-Fi Touchscreen Photo Frame, and we can see that the rating is 19. The maximum rating for an app under the Google Play Store is 5, thus a mistake was made. We will just delete the entire row as a response in this case.
+
+```python
+print(len(android))
+del android[10472]  # don't run this more than once
+print(len(android))
+```
+10841  
+10840
