@@ -17,7 +17,7 @@ import csv
 ```
 
 # The Google Play data set
-First we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function to appoint the file as a CSV. Lastly, we assign the CSV as a list of rows and seperate the first row (the column headers) from the rest of the data.
+First we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. Lastly, we assign the CSV as a list of rows and seperate the first row (the column headers) from the rest of the data.
 ```python
 opened_file = open('googleplaystore.csv')
 read_file = csv.reader(opened_file)
