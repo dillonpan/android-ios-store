@@ -52,7 +52,7 @@ def explore_data(dataset, start, end, rows_and_columns=False):
         print('Number of rows:', len(dataset))
         print('Number of columns:', len(dataset[0]))
 ```
-We can test out the "explore_data" function by passing the android data set and printing the first 3 rows. Note: The index for Python lists start at 0 and do not include the final number listed. In this case, we passed 0 & 3 as starting and ending variables. However, the printouts will be for rows 0, 1, & 2. Let's also print the column headers to better view the data:
+We can test out the "explore_data" function by passing the android data set and printing the first 3 rows. Note: The index for Python lists start at 0 and list slicing does not include the final number listed. In this case, we passed 0 & 3 as starting and ending variables. However, the printouts will be for rows 0, 1, & 2. Let's also print the column headers to better view the data:
 :
 ```python
 print(android_header)
@@ -77,7 +77,6 @@ Number of columns: 13
 Let's look at the App Store Data Set as well:
 ```python
 print(ios_header)
-print('\n')
 explore_data(ios, 0, 3, True)
 ```
 ['id', 'track_name', 'size_bytes', 'currency', 'price', 'rating_count_tot', 'rating_count_ver', 'user_rating', 'user_rating_ver', 'ver', 'cont_rating', 'prime_genre', 'sup_devices.num', 'ipadSc_urls.num', 'lang.num', 'vpp_lic']
@@ -94,3 +93,5 @@ explore_data(ios, 0, 3, True)
 
 Number of rows: 7197
 Number of columns: 16
+
+# Deleting Wrong Data
