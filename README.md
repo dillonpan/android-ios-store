@@ -131,7 +131,34 @@ for app in android:
         print(app)
 ```
 ['App', 'Category', 'Rating', 'Reviews', 'Size', 'Installs', 'Type', 'Price', 'Content Rating', 'Genres', 'Last Updated', 'Current Ver', 'Android Ver']
+
 ['Instagram', 'SOCIAL', '4.5', '66577313', 'Varies with device', '1,000,000,000+', 'Free', '0', 'Teen', 'Social', 'July 31, 2018', 'Varies with device', 'Varies with device']
+
 ['Instagram', 'SOCIAL', '4.5', '66577446', 'Varies with device', '1,000,000,000+', 'Free', '0', 'Teen', 'Social', 'July 31, 2018', 'Varies with device', 'Varies with device']
+
 ['Instagram', 'SOCIAL', '4.5', '66577313', 'Varies with device', '1,000,000,000+', 'Free', '0', 'Teen', 'Social', 'July 31, 2018', 'Varies with device', 'Varies with device']
+
 ['Instagram', 'SOCIAL', '4.5', '66509917', 'Varies with device', '1,000,000,000+', 'Free', '0', 'Teen', 'Social', 'July 31, 2018', 'Varies with device', 'Varies with device']
+
+It looks like the only difference between these entries is the # of reviews(Column 4). However, it's highly unlikely that Instagram is the only duplicated app. We can take a look and see how many apps are duplicated, at least by title:
+
+```python
+duplicate_apps = []
+unique_apps = []
+
+for app in android:
+    name = app[0] # first column in each app is the name of the app
+    if name in unique_apps:
+        duplicate_apps.append(name)
+    else:
+        unique_apps.append(name)
+    
+print('Number of duplicate apps:', len(duplicate_apps))
+print('\n')
+print('Examples of duplicate apps:', duplicate_apps[:15]) # only print the first 15 as examples
+```
+Number of duplicate apps: 1181
+
+Examples of duplicate apps: ['Quick PDF Scanner + OCR FREE', 'Box', 'Google My Business', 'ZOOM Cloud Meetings', 'join.me - Simple Meetings', 'Box', 'Zenefits', 'Google Ads', 'Google My Business', 'Slack', 'FreshBooks Classic', 'Insightly CRM', 'QuickBooks Accounting: Invoicing & Expenses', 'HipChat - Chat Built for Teams', 'Xero Accounting Software']
+'Google My Business' shows up twice in the examples list, meaning there is more than just one duplicate app with that name
+
