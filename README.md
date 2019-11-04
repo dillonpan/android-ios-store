@@ -160,5 +160,6 @@ print('Examples of duplicate apps:', duplicate_apps[:15]) # only print the first
 Number of duplicate apps: 1181
 
 Examples of duplicate apps: ['Quick PDF Scanner + OCR FREE', 'Box', 'Google My Business', 'ZOOM Cloud Meetings', 'join.me - Simple Meetings', 'Box', 'Zenefits', 'Google Ads', 'Google My Business', 'Slack', 'FreshBooks Classic', 'Insightly CRM', 'QuickBooks Accounting: Invoicing & Expenses', 'HipChat - Chat Built for Teams', 'Xero Accounting Software']
+
 'Google My Business' shows up twice in the examples list, meaning there is more than just one duplicate app with that name
 
