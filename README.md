@@ -14,15 +14,19 @@ Note: All of the code below was run using Jupyter Notebook
 
 
 # The Google Play data set
+```
 opened_file = open('googleplaystore.csv')
 read_file = csv.reader(opened_file)
 android = list(read_file)
 android_header = android[0]
 android = android[1:]
+```
 
 # The App Store data set
+```
 opened_file = open('AppleStore.csv')
 read_file = csv.reader(opened_file)
 ios = list(read_file)
 ios_header = ios[0]
 ios = ios[1:]
+```
