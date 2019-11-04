@@ -70,3 +70,25 @@ explore_data(android, 0, 3, True)
 
 Number of rows: 10841
 Number of columns: 13
+
+
+Let's look at the App Store Data Set as well:
+```python
+print(ios_header)
+print('\n')
+explore_data(ios, 0, 3, True)
+```
+['id', 'track_name', 'size_bytes', 'currency', 'price', 'rating_count_tot', 'rating_count_ver', 'user_rating', 'user_rating_ver', 'ver', 'cont_rating', 'prime_genre', 'sup_devices.num', 'ipadSc_urls.num', 'lang.num', 'vpp_lic']
+
+
+['284882215', 'Facebook', '389879808', 'USD', '0.0', '2974676', '212', '3.5', '3.5', '95.0', '4+', 'Social Networking', '37', '1', '29', '1']
+
+
+['389801252', 'Instagram', '113954816', 'USD', '0.0', '2161558', '1289', '4.5', '4.0', '10.23', '12+', 'Photo & Video', '37', '0', '29', '1']
+
+
+['529479190', 'Clash of Clans', '116476928', 'USD', '0.0', '2130805', '579', '4.5', '4.5', '9.24.12', '9+', 'Games', '38', '5', '18', '1']
+
+
+Number of rows: 7197
+Number of columns: 16
