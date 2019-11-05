@@ -254,7 +254,6 @@ def old_is_english(string):
     for character in string:
         if ord(character) > 127: # built-in function ord() returns the Unicode integer of that character
             return False
-    
     return True
 ```
 
