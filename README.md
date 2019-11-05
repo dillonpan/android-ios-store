@@ -223,9 +223,10 @@ Number of rows: 9659
 Number of columns: 13  
 We have 9659 rows, just as expected.
 
-# Removing Non-English Apps
+# Removing Non-English Apps  
 # Part One: 
 Another general issue realized after looking over the iOS Apple Store data is that not all apps are in English, which we prefer. Some examples include:
+
 ```python
 print(ios[813][1])
 print(ios[6731][1])
@@ -234,12 +235,13 @@ print(android_clean[4412][0])
 print(android_clean[7940][0])
 ```
 
-爱奇艺PPS -《欢乐颂2》电视剧热播
-【脱出ゲーム】絶対に最後までプレイしないで 〜謎解き＆ブロックパズル〜
-中国語 AQリスニング
-لعبة تقدر تربح DZ
+爱奇艺PPS -《欢乐颂2》电视剧热播  
+【脱出ゲーム】絶対に最後までプレイしないで 〜謎解き＆ブロックパズル〜  
+中国語 AQリスニング  
+لعبة تقدر تربح DZ  
 
 Let's remove these apps and one way to do that is to remove each app whose name contains a symbol not commonly used in English text. English text usually includes letters from the English alphabet, numbers composed of digits from 0 to 9, punctuation marks (., !, ?, ;, etc.), and other symbols (+, *, /, etc.).  
+
 All these characters that are specific to English texts are encoded using the ASCII standard. Each ASCII character has a corresponding number between 0 and 127 associated with it. We can create a function that double checks a name and confirms whether or not it is valid.
 
 ```python
@@ -258,7 +260,7 @@ Test:
 print(is_english('Instagram'))
 print(is_english('爱奇艺PPS -《欢乐颂2》电视剧热播'))
 ```
-True
+True  
 False
 
 The function seems to work fine, but some English app names use emojis or other symbols (™, — (em dash), – (en dash), etc.) that fall outside of the ASCII range. Because of this, some apps will be incorrectly marked as non-english.
@@ -272,8 +274,8 @@ print(is_english('Instachat 😜'))
 print(ord('™'))
 print(ord('😜'))
 ```
-False
+False  
 False
 
-8482
+8482  
 128540
