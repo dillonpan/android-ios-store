@@ -229,18 +229,17 @@ Number of columns: 13
 We have 9659 rows, just as expected.
 
 # Removing Non-English Apps  
-Another general issue realized after looking over the iOS Apple Store data is that not all apps are in English, which we prefer. Some examples include:
+Another general issue realized after looking over both datasets that not all apps are in English, which we prefer. Some examples include:
 
 ```python
-print(ios[813][1]) # row 812, 2nd column ("name" column)
-print(ios[6731][1])
+# note: row 0 in Python considered row 2 in CSV due to removing the header earlier, column 2 in Python is column 3 in CSV
+print(ios[861][2]) # Equivalent to Row 863, Column 3 in the CSV
 
-print(android_clean[4412][0]) # row 4411, 1st column ("name" column)
+print(android_clean[4412][0])
 print(android_clean[7940][0])
 ```
-
 爱奇艺PPS -《欢乐颂2》电视剧热播  
-【脱出ゲーム】絶対に最後までプレイしないで 〜謎解き＆ブロックパズル〜  
+
 中国語 AQリスニング  
 لعبة تقدر تربح DZ  
 
