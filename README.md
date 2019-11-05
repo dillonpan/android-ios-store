@@ -120,7 +120,7 @@ print(len(android))
 10840
 
 # Removing Duplicate Entries
-# Part One
+# Part One: Finding the Duplicates
 Let's pretend after looking over the Google Play data, we noticed that Instagram seems to have multiple entries. Let's take a closer look:
 
 ```android
@@ -162,5 +162,59 @@ Number of duplicate apps: 1181
 Examples of duplicate apps: ['Quick PDF Scanner + OCR FREE', 'Box', 'Google My Business', 'ZOOM Cloud Meetings', 'join.me - Simple Meetings', 'Box', 'Zenefits', 'Google Ads', 'Google My Business', 'Slack', 'FreshBooks Classic', 'Insightly CRM', 'QuickBooks Accounting: Invoicing & Expenses', 'HipChat - Chat Built for Teams', 'Xero Accounting Software']
 
 Note: 'Google My Business' shows up twice in the examples list, meaning there is more than just one duplicate app with that name  
-To fix the issue of duplicate apps, let's only keep the most reviewed version and hold it in a dictionary (Ex. name: highest # of reviews). Afterwards, we can use the dictionary to rebuild the data set without duplicates.
 
+# Part Two: Fixing the Data Set
+To fix the issue of duplicate apps, let's only keep the most reviewed version and hold it in a dictionary (Ex. name: highest # of reviews). Afterwards, we can use the dictionary to rebuild the data set without duplicates:
+
+```python
+reviews_max = {}
+
+for app in android:
+    name = app[0] # take the name
+    n_reviews = float(app[3]) # take the # of reviews
+    
+    if name in reviews_max and reviews_max[name] < n_reviews: # if the name is in the dictionary and there are more reviews
+        reviews_max[name] = n_reviews # then update the # of reviews in the dictionary to the higher number
+    elif name not in reviews_max:
+        reviews_max[name] = n_reviews
+```
+
+Let's do a quick double check. If our dictionary was created correctly, it should be the same size as the original data set minus the duplicates:
+```python
+print('Expected length:', len(android) - 1181)
+print('Actual length:', len(reviews_max))
+```
+Expected length: 9659
+Actual length: 9659
+
+Perfect! Now let's recreate the dataset but without duplicates:
+
+```python
+android_clean = []
+already_added = [] # seperate list as a double check on exact duplicate mistakes
+
+for app in android:
+    name = app[0]
+    n_reviews = float(app[3])
+    
+# If the amt of reviews matches the amount listed in the dictionary, we can add it to our clean dataset. We also added a check in case
+# theres two rows with the same name and the same amt of reviews.
+    if (reviews_max[name] == n_reviews) and (name not in already_added):
+        android_clean.append(app)
+        already_added.append(name)
+```
+
+Now we can double check the new dataset matches the expected length using our explore_data function
+```python
+explore_data(android_clean, 0, 3, True)
+```
+
+['Photo Editor & Candy Camera & Grid & ScrapBook', 'ART_AND_DESIGN', '4.1', '159', '19M', '10,000+', 'Free', '0', 'Everyone', 'Art & Design', 'January 7, 2018', '1.0.0', '4.0.3 and up']
+
+['U Launcher Lite – FREE Live Cool Themes, Hide Apps', 'ART_AND_DESIGN', '4.7', '87510', '8.7M', '5,000,000+', 'Free', '0', 'Everyone', 'Art & Design', 'August 1, 2018', '1.2.4', '4.0.3 and up']
+
+['Sketch - Draw & Paint', 'ART_AND_DESIGN', '4.5', '215644', '25M', '50,000,000+', 'Free', '0', 'Teen', 'Art & Design', 'June 8, 2018', 'Varies with device', '4.2 and up']
+
+Number of rows: 9659  
+Number of columns: 13  
+We have 9659 rows, just as expected.
