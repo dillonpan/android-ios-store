@@ -343,19 +343,19 @@ ios_final = []
 
 for app in android_english:
     price = app[7]
-    if price == '0':
+    if float(price) == 0.0:
         android_final.append(app)
-        
+
 for app in ios_english:
-    price = app[4]
-    if price == '0.0':
+    price = app[5]
+    if float(price) == 0.0:
         ios_final.append(app)
         
 print(len(android_final))
 print(len(ios_final))
 ```
 8864  
-3222
+4056
 
 So now we have our final datasets that we can now analyze using other Python functions or using the CSV.writer() function and exporting the datasets to a CSV file
 
