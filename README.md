@@ -19,7 +19,7 @@ import csv
 ```
 
 # The Google Play data set
-First we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. Lastly, we assign the CSV as a list of rows and seperate the first row (the column headers) from the rest of the data. Lastly, we can just close the the open() link.
+First we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. We can then assign the CSV as a list of rows and seperate the first row (the column headers) from the rest of the data. Lastly, we can just close the the open() link.
 
 Note: If you run into an error named UnicodeDecodeError, add encoding="utf8" to the open() function.  
 Example: open('googleplaystore.csv','r', encoding='utf8')
