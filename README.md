@@ -364,16 +364,19 @@ So now we have our final datasets that we can now analyze using other Python fun
 # Exporting both final datasets
 
 # Note: Please replace [directory] below in the open() function with the link to your folder of choice
+```python
 opened_file = open('[directory].android_write.csv', 'w+') # 'w+' is for write mode and will create/overwrite existing file
 write_file = csv.writer(opened_file, lineterminator='\n')
 write_file.writerow(android_header)
 for row in android_final:
     write_file.writerow(row)
 opened_file.close()
-
+```
+```python
 opened_file = open('[directory].iOS_write.csv', 'w+')
 write_file = csv.writer(opened_file, lineterminator='\n')
 write_file.writerow(ios_header)
 for row in ios_final:
     write_file.writerow(row)
 opened_file.close()
+```
