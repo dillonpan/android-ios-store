@@ -1,8 +1,8 @@
 # android-ios-store
-Project using CSV Reader, list slicing, and various functions to clean and analize a CSV dataset in Python
+Project using CSV Reader, list slicing, and various functions to clean a CSV dataset in Python
 
 # Project Details:
-Let's pretend we work for a company that specializes in creating profitable Android & iOS apps. Assume that the company business model focuses on free to download & install apps but generates income via in-app purchases and other sources. This means that one of our primary focus is on developing apps which attract as many users as possible. Let's gather data on both the App Store on iOS and the Google Play Store on Android.
+Let's pretend we work for a company that specializes in creating profitable Android & iOS apps. Assume that the company business model focuses on free to download & install apps. Let's gather data on both the App Store on iOS and the Google Play Store on Android.
 
 Since there are millions of apps within each store, we will be using a small sample size of data for this project. Details are as follows and both data sets have been uploaded/links provided below:  
 1. 'googleplaystore.csv' containing data about approximately ten thousand Android apps from Google Play  
@@ -19,27 +19,32 @@ import csv
 ```
 
 # The Google Play data set
-First we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. Lastly, we assign the CSV as a list of rows and seperate the first row (the column headers) from the rest of the data.
+First we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. Lastly, we assign the CSV as a list of rows and seperate the first row (the column headers) from the rest of the data. Lastly, we can just close the the open() link.
 
 Note: If you run into an error named UnicodeDecodeError, add encoding="utf8" to the open() function.  
-Example: open('googleplaystore.csv', encoding='utf8')
+Example: open('googleplaystore.csv','r', encoding='utf8')
+
+# Note: Please replace [directory] below in the open() function with the link to your folder of choice
+Example: 
 
 ```python
-opened_file = open('googleplaystore.csv')
+opened_file = open('[directory].googleplaystore.csv', 'r') # 'r' is for read mode, there are other modes in opening a file
 read_file = csv.reader(opened_file)
 android = list(read_file)
 android_header = android[0]
 android = android[1:]
+opened_file.close()
 ```
 
 # The App Store data set
 We do the same as above for the iOS data
 ```python
-opened_file = open('AppleStore.csv')
+opened_file = open('[directory].AppleStore.csv', 'r')
 read_file = csv.reader(opened_file)
 ios = list(read_file)
 ios_header = ios[0]
 ios = ios[1:]
+opened_file.close()
 ```
 
 # Exploring the data
@@ -354,5 +359,21 @@ print(len(ios_final))
 8864  
 3222
 
-So now we have our final dataset that we can now analyze.
+So now we have our final datasets that we can now analyze using other Python functions or using the CSV.writer() function and exporting the datasets to a CSV file
 
+# Exporting both final datasets
+
+# Note: Please replace [directory] below in the open() function with the link to your folder of choice
+opened_file = open('[directory].android_write.csv', 'w+') # 'w+' is for write mode and will create/overwrite existing file
+write_file = csv.writer(opened_file, lineterminator='\n')
+write_file.writerow(android_header)
+for row in android_final:
+    write_file.writerow(row)
+opened_file.close()
+
+opened_file = open('[directory].iOS_write.csv', 'w+')
+write_file = csv.writer(opened_file, lineterminator='\n')
+write_file.writerow(ios_header)
+for row in ios_final:
+    write_file.writerow(row)
+opened_file.close()
