@@ -79,7 +79,7 @@ explore_data(android, 0, 3, True)
 ['U Launcher Lite – FREE Live Cool Themes, Hide Apps', 'ART_AND_DESIGN', '4.7', '87510', '8.7M', '5,000,000+', 'Free', '0', 'Everyone', 'Art & Design', 'August 1, 2018', '1.2.4', '4.0.3 and up']
 
 
-Number of rows: 10841
+Number of rows: 10841  
 Number of columns: 13
 
 
