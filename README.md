@@ -224,7 +224,6 @@ Number of columns: 13
 We have 9659 rows, just as expected.
 
 # Removing Non-English Apps  
-# Part One: 
 Another general issue realized after looking over the iOS Apple Store data is that not all apps are in English, which we prefer. Some examples include:
 
 ```python
@@ -245,7 +244,7 @@ Let's remove these apps and one way to do that is to remove each app whose name 
 All these characters that are specific to English texts are encoded using the ASCII standard. Each ASCII character has a corresponding number between 0 and 127 associated with it. We can create a function that double checks a name and confirms whether or not it is valid.
 
 ```python
-def is_english(string):
+def old_is_english(string):
     
     for character in string:
         if ord(character) > 127: # built-in function ord() returns the Unicode integer of that character
@@ -257,8 +256,8 @@ def is_english(string):
 Test:
 
 ```python
-print(is_english('Instagram'))
-print(is_english('爱奇艺PPS -《欢乐颂2》电视剧热播'))
+print(old_is_english('Instagram'))
+print(old_is_english('爱奇艺PPS -《欢乐颂2》电视剧热播'))
 ```
 
 True  
@@ -269,8 +268,8 @@ The function seems to work fine, but some English app names use emojis or other 
 Here's some examples of app names that will be incorrectly marked as non-english for falling out of the ASCII character range
 
 ```python
-print(is_english('Docs To Go™ Free Office Suite'))
-print(is_english('Instachat 😜'))
+print(old_is_english('Docs To Go™ Free Office Suite'))
+print(old_is_english('Instachat 😜'))
 
 print(ord('™'))
 print(ord('😜'))
@@ -280,3 +279,23 @@ False
 
 8482  
 128540
+
+One way we can fix this issue is by setting a minimum of non-ASCII chracters before we disqualfy the app name from being english. This isn't a perfect fix but should generally be good enough to minimize the amount of incorrect deletions.
+
+```python
+def is_english(string):
+    non_ascii = 0
+    
+    for character in string:
+        if ord(character) > 127:
+            non_ascii += 1
+    
+    if non_ascii > 3:
+        return False
+    else:
+        return True
+```
+```python
+print(is_english('Docs To Go™ Free Office Suite'))
+print(is_english('Instachat 😜'))
+```
