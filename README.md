@@ -161,5 +161,6 @@ Number of duplicate apps: 1181
 
 Examples of duplicate apps: ['Quick PDF Scanner + OCR FREE', 'Box', 'Google My Business', 'ZOOM Cloud Meetings', 'join.me - Simple Meetings', 'Box', 'Zenefits', 'Google Ads', 'Google My Business', 'Slack', 'FreshBooks Classic', 'Insightly CRM', 'QuickBooks Accounting: Invoicing & Expenses', 'HipChat - Chat Built for Teams', 'Xero Accounting Software']
 
-'Google My Business' shows up twice in the examples list, meaning there is more than just one duplicate app with that name
+Note: 'Google My Business' shows up twice in the examples list, meaning there is more than just one duplicate app with that name  
+To fix the issue of duplicate apps, let's only keep the most reviewed version and hold it in a dictionary (Ex. name: highest # of reviews). Afterwards, we can use the dictionary to rebuild the data set without duplicates.
 
