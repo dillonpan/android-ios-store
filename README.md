@@ -193,7 +193,7 @@ Let's do a quick double check. If our dictionary was created correctly, it shoul
 print('Expected length:', len(android) - 1181)
 print('Actual length:', len(reviews_max))
 ```
-Expected length: 9659
+Expected length: 9659  
 Actual length: 9659
 
 Perfect! Now let's recreate the dataset but without duplicates:
