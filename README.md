@@ -302,3 +302,6 @@ Test:
 print(is_english('Docs To Go™ Free Office Suite'))
 print(is_english('Instachat 😜'))
 ```
+True  
+True
+
