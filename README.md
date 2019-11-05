@@ -2,7 +2,7 @@
 Project using CSV Reader, list slicing, and various functions to clean and analize a CSV dataset in Python
 
 # Project Details:
-Let's pretend we work for a company that specializes in creating profitable Android & iOS apps. Assume that the company business model focuses on free to download & install apps but generates income via in-app purchases. This means that one of our primary focuses is on developing apps which attract as many users as possible. Let's gather data on both the App Store on iOS and the Google Play Store on Android.
+Let's pretend we work for a company that specializes in creating profitable Android & iOS apps. Assume that the company business model focuses on free to download & install apps but generates income via in-app purchases and other sources. This means that one of our primary focus is on developing apps which attract as many users as possible. Let's gather data on both the App Store on iOS and the Google Play Store on Android.
 
 Since there are millions of apps within each store, we will be using a small sample size of data for this project. Details are as follows and both data sets have been uploaded/links provided below:  
 1. 'googleplaystore.csv' containing data about approximately ten thousand Android apps from Google Play  
@@ -227,10 +227,10 @@ We have 9659 rows, just as expected.
 Another general issue realized after looking over the iOS Apple Store data is that not all apps are in English, which we prefer. Some examples include:
 
 ```python
-print(ios[813][1])
+print(ios[813][1]) # row 812, 2nd column ("name" column)
 print(ios[6731][1])
 
-print(android_clean[4412][0])
+print(android_clean[4412][0]) # row 4411, 1st column ("name" column)
 print(android_clean[7940][0])
 ```
 
@@ -304,4 +304,55 @@ print(is_english('Instachat 😜'))
 ```
 True  
 True
+
+Now we can use the new function we created and remove any non-English apps for both the iOS store dataset and the previously cleaned Google store list:
+
+```python
+android_english = []
+ios_english = []
+
+for app in android_clean:
+    name = app[0]
+    if is_english(name):
+        android_english.append(app)
+        
+for app in ios:
+    name = app[1]
+    if is_english(name):
+        ios_english.append(app)
+```
+
+```python
+print(len(android_english))
+print(len(ios_english))
+```
+9614  
+6183
+
+You can see by the length of both these new datasets that we have removed quite a good number of apps from the original dataset.  
+
+There's still one last glaring issue with our dataset: Paid apps  
+As we originally stated in the beginning, we want to focus on popular and FREE to purchase apps. So let's remove apps that requires funds to purchase and create a final dataset:
+
+```python
+android_final = []
+ios_final = []
+
+for app in android_english:
+    price = app[7]
+    if price == '0':
+        android_final.append(app)
+        
+for app in ios_english:
+    price = app[4]
+    if price == '0.0':
+        ios_final.append(app)
+        
+print(len(android_final))
+print(len(ios_final))
+```
+8864  
+3222
+
+So now we have our final dataset that we can now analyze.
 
