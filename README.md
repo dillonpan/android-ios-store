@@ -252,14 +252,15 @@ def is_english(string):
             return False
     
     return True
-'''
+```
 
 Test:
 
-'''python
+```python
 print(is_english('Instagram'))
 print(is_english('爱奇艺PPS -《欢乐颂2》电视剧热播'))
 ```
+
 True  
 False
 
