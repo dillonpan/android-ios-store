@@ -9,8 +9,8 @@ Since there are millions of apps within each store, we will be using a small sam
 [Google Play Store Data](https://www.kaggle.com/lava18/google-play-store-apps)  
 2. ''AppleStore.csv''containing data about approximately seven thousand iOS apps from the App Store  
 [iOS App Store Data](https://www.kaggle.com/ramamet4/app-store-apple-data-set-10k-apps)  
-Note: All of the code below was run using Jupyter Notebook
 
+Note: All of the code below was run using Jupyter Notebook
 
 # Opening and Exploring the Data:
 Import the csv package
@@ -20,6 +20,10 @@ import csv
 
 # The Google Play data set
 First we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. Lastly, we assign the CSV as a list of rows and seperate the first row (the column headers) from the rest of the data.
+
+Note: If you run into an error named UnicodeDecodeError, add encoding="utf8" to the open() function.  
+Example: open('googleplaystore.csv', encoding='utf8')
+
 ```python
 opened_file = open('googleplaystore.csv')
 read_file = csv.reader(opened_file)
@@ -218,3 +222,4 @@ explore_data(android_clean, 0, 3, True)
 Number of rows: 9659  
 Number of columns: 13  
 We have 9659 rows, just as expected.
+
