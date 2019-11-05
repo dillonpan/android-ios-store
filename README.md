@@ -295,6 +295,9 @@ def is_english(string):
     else:
         return True
 ```
+
+Test:
+
 ```python
 print(is_english('Docs To Go™ Free Office Suite'))
 print(is_english('Instachat 😜'))
