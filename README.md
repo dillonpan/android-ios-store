@@ -330,7 +330,7 @@ print(len(android_english))
 print(len(ios_english))
 ```
 9614  
-6183
+7197
 
 You can see by the length of both these new datasets that we have removed quite a good number of apps from the original dataset.  
 
