@@ -19,7 +19,7 @@ import csv
 ```
 
 # The Google Play data set
-First we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. We can then assign the CSV as a list of rows and seperate the first row (the column headers) from the rest of the data. Lastly, we can just close the the open() link.
+First, we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. We can then assign the CSV as a list of rows and separate the first row (the column headers) from the rest of the data. Lastly, we can just close the open() link.
 
 Note: If you run into an error named UnicodeDecodeError, add encoding="utf8" to the open() function.  
 Example: open('googleplaystore.csv','r', encoding='utf8')
@@ -119,7 +119,7 @@ print(android[0])      # correct row for reference
 
 ['Photo Editor & Candy Camera & Grid & ScrapBook', 'ART_AND_DESIGN', '4.1', '159', '19M', '10,000+', 'Free', '0', 'Everyone', 'Art & Design', 'January 7, 2018', '1.0.0', '4.0.3 and up']
 
-The row 10472 corresponds to the app Life Made WI-Fi Touchscreen Photo Frame, and we can see that the rating is 19. The maximum rating for an app under the Google Play Store is 5, thus a mistake was made. We will just delete the entire row as a response in this case.
+The row 10472 corresponds to the app "Life Made WI-Fi Touchscreen Photo Frame", and we can see that the rating is 19. The maximum rating for an app under the Google Play Store is 5, thus a mistake was made. We will just delete the entire row as a response in this case.
 
 ```python
 print(len(android))
@@ -150,7 +150,7 @@ for app in android:
 
 ['Instagram', 'SOCIAL', '4.5', '66509917', 'Varies with device', '1,000,000,000+', 'Free', '0', 'Teen', 'Social', 'July 31, 2018', 'Varies with device', 'Varies with device']
 
-It looks like the only difference between these entries is the # of reviews(Column 4). However, it's highly unlikely that Instagram is the only duplicated app. We can take a look and see how many apps are duplicated, at least by title:
+It looks like the only difference between these entries is the # of reviews(Column 4). However, it's highly unlikely that Instagram is the only duplicated app. We can look and see how many apps are duplicated, at least by title:
 
 ```python
 duplicate_apps = []
@@ -201,7 +201,7 @@ Perfect! Now let's recreate the dataset but without duplicates:
 
 ```python
 android_clean = []
-already_added = [] # seperate list as a double check on exact duplicate mistakes
+already_added = [] # separate list as a double check on exact duplicate mistakes
 
 for app in android:
     name = app[0]
@@ -284,7 +284,7 @@ False
 8482  
 128540
 
-One way we can fix this issue is by setting a minimum of non-ASCII chracters before we disqualfy the app name from being english. This isn't a perfect fix but should generally be good enough to minimize the amount of incorrect deletions.
+One way we can fix this issue is by setting a minimum of non-ASCII characters before we disqualify the app name from being english. This isn't a perfect fix but should generally be good enough to minimize the amount of incorrect deletions.
 
 ```python
 def is_english(string):
